@@ -4,6 +4,7 @@
   min-height: 56px;
   background: transparent;
   border: none;
+  cursor: pointer;
 
   &.primary {
     font-weight: 700;
@@ -13,5 +14,10 @@
     background: #3CB3AB;
     border-radius: 33.5px;
     padding: 0 42px;
+
+    &:disabled {
+      background: rgba(47, 47, 47, 0.5);
+      cursor: not-allowed;
+    }
   }
 }
