@@ -1,0 +1,48 @@
+
+.rewardCard {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  grid-gap: 24px;
+  line-height: 17px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 40px 24px;
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  .title {
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 8px;
+  }
+
+  .price {
+    font-weight: 500;
+    color: #3CB3AB;
+  }
+
+  .description {
+    line-height: 24px;
+    color: #7A7A7A;
+  }
+
+  .amount {
+    display: flex;
+    align-items: center;
+    grid-gap: 8px;
+    font-size: 15px;
+    line-height: 18px;
+    color: #7A7A7A;
+
+    strong {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 39px;
+      color: #000000;
+    }
+  }
+}
