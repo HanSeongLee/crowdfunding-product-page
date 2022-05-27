@@ -6,12 +6,11 @@ import { IReward } from '../../types/reward';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
     reward: IReward;
+    onRewardSelect: (reward: IReward) => void;
 };
 
-const RewardCard: React.FC<IProps> = ({
-                                          reward: { title, description, price, amount },
-                                          className, ...props
-                                      }) => {
+const RewardCard: React.FC<IProps> = ({ onRewardSelect, reward, className, ...props }) => {
+    const { title, description, price, amount } = reward;
     return (
         <div className={cn(styles.rewardCard, {
             [styles.disabled]: amount === 0,
@@ -37,7 +36,9 @@ const RewardCard: React.FC<IProps> = ({
                 left
             </div>
 
-            <Button disabled={amount === 0}>
+            <Button onClick={_ => onRewardSelect(reward)}
+                    disabled={amount === 0}
+            >
                 {amount > 0 ? 'Select Reward' : 'Out of Stock'}
             </Button>
         </div>
