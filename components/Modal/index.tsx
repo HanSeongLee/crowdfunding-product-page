@@ -4,12 +4,19 @@ import cn from 'classnames';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
     open: boolean;
+    onClose: () => void;
 };
 
-const Modal: React.FC<IProps> = ({ open, className, children, ...props }) => {
+const Modal: React.FC<IProps> = ({
+                                     open, onClose, className, children,
+                                     ...props
+                                 }) => {
     return (
-        <div className={cn(styles.modal, className)}
+        <div className={cn(styles.modal, {
+            [styles.open]: open,
+        }, className)}
              {...props}
+             onClick={onClose}
         >
             <div className={styles.backdrop}></div>
             <div className={styles.children}>
