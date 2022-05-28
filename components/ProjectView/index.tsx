@@ -3,44 +3,55 @@ import styles from './style.module.scss';
 import Container from '../Container';
 import Button from '../Button';
 import cn from 'classnames';
-import RewardContainer from '../../containers/RewardContainer';
 import RewardCard from '../RewardCard';
 import {IReward} from '../../types/reward';
 import BookmarkButton from '../BookmarkButton';
+import {IProject} from '../../types/project';
 
 interface IProps {
+    project: IProject;
     onBackProjectClick: () => void;
     onRewardSelect: (reward: IReward) => void;
 };
 
-const ProjectView: React.FC<IProps> = ({ onBackProjectClick, onRewardSelect }) => {
+const ProjectView: React.FC<IProps> = ({ project, onBackProjectClick, onRewardSelect }) => {
+    const {
+        banner: {
+            mobile,
+            desktop,
+        },
+        logo, title, description, backed,
+        totalBacked, totalBackers, duration, content,
+        rewards,
+    } = project;
+
     return (
         <section className={styles.projectView}>
             <picture>
-                <source srcSet={'/img/image-hero-mobile.jpg'}
+                <source srcSet={mobile}
                         media={'(max-width: 992px)'}
                 />
-                <source srcSet={'/img/image-hero-desktop.jpg'}
+                <source srcSet={desktop}
                         media={'(min-width: 992px)'}
                 />
 
                 <img className={styles.topBanner}
-                     src={'/img/image-hero-desktop.jpg'}
+                     src={desktop}
                      alt={''}
                 />
             </picture>
             <Container className={styles.container}>
                 <div className={styles.box}>
                     <img className={styles.projectLogo}
-                         src={'/img/logo-mastercraft.svg'}
+                         src={logo}
                          alt={'logo'}
                     />
 
                     <h2 className={styles.title}>
-                        {`Mastercraft Bamboo \nMonitor Riser`}
+                        {title}
                     </h2>
                     <p className={styles.description}>
-                        A beautifully handcrafted monitor stand to reduce neck and eye strain.
+                        {description}
                     </p>
                     <div className={styles.buttonContainer}>
                         <Button onClick={onBackProjectClick}>
@@ -54,15 +65,15 @@ const ProjectView: React.FC<IProps> = ({ onBackProjectClick, onRewardSelect }) =
                     <ul className={styles.indicatorContainer}>
                         <li className={styles.indicator}>
                             <div className={styles.title}>
-                                $89,914
+                                ${backed?.toLocaleString()}
                             </div>
                             <div className={styles.description}>
-                                of $100,000 backed
+                                of ${totalBacked?.toLocaleString()} backed
                             </div>
                         </li>
                         <li className={styles.indicator}>
                             <div className={styles.title}>
-                                5,007
+                                {totalBackers?.toLocaleString()}
                             </div>
                             <div className={styles.description}>
                                 total backers
@@ -70,7 +81,7 @@ const ProjectView: React.FC<IProps> = ({ onBackProjectClick, onRewardSelect }) =
                         </li>
                         <li className={styles.indicator}>
                             <div className={styles.title}>
-                                56
+                                {duration?.toLocaleString()}
                             </div>
                             <div className={styles.description}>
                                 days left
@@ -85,23 +96,18 @@ const ProjectView: React.FC<IProps> = ({ onBackProjectClick, onRewardSelect }) =
                         About this project
                     </div>
                     <p className={styles.description}>
-                        {`
-                        The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve your posture and make you more comfortable while at work, helping you stay focused on the task at hand.\n
-                        Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer to allow notepads, pens, and USB sticks to be stored under the stand.
-                        `}
+                        {content}
                     </p>
 
-                    <RewardContainer className={styles.rewardContainer}>
-                        {(rewards) =>
-                            rewards?.map((props, index) => (
-                                <li key={index}>
-                                    <RewardCard reward={props}
-                                                onRewardSelect={onRewardSelect}
-                                    />
-                                </li>
-                            ))
-                        }
-                    </RewardContainer>
+                    <ul className={styles.rewardContainer}>
+                        {rewards?.map((props, index) => (
+                            <li key={index}>
+                                <RewardCard reward={props}
+                                            onRewardSelect={onRewardSelect}
+                                />
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </Container>
         </section>

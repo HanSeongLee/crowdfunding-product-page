@@ -5,11 +5,12 @@ import RewardOptionContainer from '../../containers/RewardOptionContainer';
 import {IReward} from '../../types/reward';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
+    rewards: IReward[];
     onContinue: (reward: IReward, pledge?: number) => void;
     onClose: () => void;
 };
 
-const BackProject: React.FC<IProps> = ({ onContinue, onClose, ...props }) => {
+const BackProject: React.FC<IProps> = ({ rewards, onContinue, onClose, ...props }) => {
     return (
         <div className={styles.backProject}
              {...props}
@@ -30,6 +31,7 @@ const BackProject: React.FC<IProps> = ({ onContinue, onClose, ...props }) => {
             </p>
 
             <RewardOptionContainer className={styles.rewardOptionContainer}
+                                   rewards={rewards}
                                    onContinue={onContinue}
             />
         </div>
