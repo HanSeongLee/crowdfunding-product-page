@@ -12,7 +12,7 @@
   padding: 40px 24px;
 
   @include media(">desktop") {
-    padding-top: 38px 32px 32px;
+    padding: 38px 32px 32px;
   }
 
   &.disabled {
