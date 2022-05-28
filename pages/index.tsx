@@ -1,5 +1,7 @@
-import type { NextPage } from 'next'
+import type {NextPage} from 'next'
 import Head from 'next/head';
+import Header from '../components/Header';
+import ProjectViewContainer from '../containers/ProjectViewContainer';
 
 const Home: NextPage = () => {
   return (
@@ -54,6 +56,8 @@ const Home: NextPage = () => {
         </Head>
 
         <main>
+          <Header />
+          <ProjectViewContainer />
         </main>
       </>
   );
