@@ -32,7 +32,7 @@ const RewardOption: React.FC<IProps> = ({
                             aria-label={title}
                     >
                     </button>
-                    <div>
+                    <div className={styles.header}>
                         <div className={styles.title}>
                             {title}
                         </div>
