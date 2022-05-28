@@ -1,3 +1,4 @@
+@import "styles/utils";
 
 .rewardCard {
   display: flex;
@@ -10,24 +11,64 @@
   border-radius: 8px;
   padding: 40px 24px;
 
+  @include media(">desktop") {
+    padding-top: 38px 32px 32px;
+  }
+
   &.disabled {
     opacity: 0.5;
   }
+
+  .header {
+    @include media(">desktop") {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
 
   .title {
     font-weight: 700;
     color: #000000;
     margin-bottom: 8px;
+
+    @include media(">desktop") {
+      font-size: 18px;
+      line-height: 22px;
+    }
   }
 
   .price {
     font-weight: 500;
     color: #3CB3AB;
+
+    @include media(">desktop") {
+      font-size: 15px;
+      line-height: 18px;
+    }
   }
 
   .description {
     line-height: 24px;
     color: #7A7A7A;
+
+    @include media(">desktop") {
+      line-height: 30px;
+    }
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 24px;
+
+    @include media(">desktop") {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   .amount {
@@ -44,5 +85,10 @@
       line-height: 39px;
       color: #000000;
     }
+  }
+
+  .selectRewardButton {
+    font-size: 14px;
+    line-height: 17px;
   }
 }

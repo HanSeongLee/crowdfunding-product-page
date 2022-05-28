@@ -17,7 +17,7 @@ const RewardCard: React.FC<IProps> = ({ onRewardSelect, reward, className, ...pr
         }, className)}
              {...props}
         >
-            <div>
+            <div className={styles.header}>
                 <div className={styles.title}>
                     {title}
                 </div>
@@ -29,18 +29,21 @@ const RewardCard: React.FC<IProps> = ({ onRewardSelect, reward, className, ...pr
                 {description}
             </p>
 
-            <div className={styles.amount}>
-                <strong>
-                    {amount}
-                </strong>
-                left
-            </div>
+            <div className={styles.footer}>
+                <div className={styles.amount}>
+                    <strong>
+                        {amount}
+                    </strong>
+                    left
+                </div>
 
-            <Button onClick={_ => onRewardSelect(reward)}
-                    disabled={amount === 0}
-            >
-                {amount > 0 ? 'Select Reward' : 'Out of Stock'}
-            </Button>
+                <Button className={styles.selectRewardButton}
+                        onClick={_ => onRewardSelect(reward)}
+                        disabled={amount === 0}
+                >
+                    {amount > 0 ? 'Select Reward' : 'Out of Stock'}
+                </Button>
+            </div>
         </div>
     );
 };
