@@ -1,0 +1,136 @@
+
+.projectView {
+  text-align: center;
+
+  .topBanner {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 24px;
+    top: -84px;
+  }
+
+  .box {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.0497193);
+    border-radius: 8px;
+    padding: 52px 23.5px 40px;
+  }
+
+  .projectLogo {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+    margin-bottom: 16px;
+    white-space: pre-line;
+  }
+
+  .description {
+    margin-bottom: 24px;
+  }
+
+  .buttonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 9px;
+  }
+
+  .indicatorContainer {
+    display: flex;
+    flex-direction: column;
+
+    .indicator {
+      position: relative;
+      padding-top: 24px;
+
+      &:first-child {
+        padding-top: 0;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 80px;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.15);
+        content: "";
+        transform: translateX(-50%);
+      }
+
+      .title {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 39px;
+        margin-bottom: 9px;
+      }
+
+      .description {
+        line-height: 17px;
+      }
+    }
+  }
+
+  .progress {
+    position: relative;
+    width: 100%;
+    height: 12px;
+    background: rgba(47, 47, 47, 0.05);
+    border-radius: 33.5px;
+    margin-top: 8px;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 88.9%;
+      height: 100%;
+      background: #3CB3AB;
+      border-radius: 33.5px;
+      content: "";
+    }
+  }
+
+  .projectDetails {
+    text-align: left;
+    padding: 40px 24px;
+
+    .title {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    .description {
+      font-size: 14px;
+      line-height: 24px;
+      color: #7A7A7A;
+      white-space: pre-line;
+    }
+  }
+
+  .rewardContainer {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 24px;
+  }
+}
