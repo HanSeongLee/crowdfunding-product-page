@@ -1,0 +1,19 @@
+
+.bookmarkButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+  &.bookmarked {
+    .icon {
+      circle {
+        fill: #147A73;
+      }
+
+      path {
+        fill: #FFFFFF;
+      }
+    }
+  }
+}
