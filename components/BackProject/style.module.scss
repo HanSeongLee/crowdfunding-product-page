@@ -1,0 +1,46 @@
+
+.backProject {
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.0497193);
+  border-radius: 8px;
+  padding: 32px 24px 31px;
+
+  .titleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    .title {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      color: #000000;
+    }
+
+    .closeButton {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+
+      svg path {
+        fill: #999999;
+      }
+    }
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 24px;
+    color: #7A7A7A;
+    margin-bottom: 24px;
+  }
+
+  .rewardOptionContainer {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 24px;
+  }
+}
