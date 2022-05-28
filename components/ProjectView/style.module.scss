@@ -1,3 +1,4 @@
+@import "styles/utils";
 
 .projectView {
   text-align: center;
@@ -6,6 +7,10 @@
     width: 100%;
     max-height: 300px;
     object-fit: cover;
+
+    @include media(">desktop") {
+      max-height: 400px;
+    }
   }
 
   .container {
@@ -14,6 +19,10 @@
     flex-direction: column;
     grid-gap: 24px;
     top: -84px;
+
+    @include media(">desktop") {
+      top: -92px;
+    }
   }
 
   .box {
@@ -22,6 +31,10 @@
     border: 1px solid rgba(0, 0, 0, 0.0497193);
     border-radius: 8px;
     padding: 52px 23.5px 40px;
+
+    @include media(">desktop") {
+      padding: 56px 48px 48px;
+    }
   }
 
   .projectLogo {
@@ -38,10 +51,22 @@
     color: #000000;
     margin-bottom: 16px;
     white-space: pre-line;
+
+    @include media(">desktop") {
+      font-size: 28px;
+      line-height: 34px;
+      white-space: initial;
+      margin-bottom: 15px;
+    }
   }
 
   .description {
     margin-bottom: 24px;
+
+    @include media(">desktop") {
+      line-height: 20px;
+      margin-bottom: 40px;
+    }
   }
 
   .buttonContainer {
@@ -55,12 +80,28 @@
     display: flex;
     flex-direction: column;
 
+    @include media(">desktop") {
+      flex-direction: row;
+      text-align: left;
+    }
+
     .indicator {
       position: relative;
       padding-top: 24px;
 
+      @include media('>desktop') {
+        flex: 1;
+        padding-top: 0;
+        padding-left: 47px;
+        max-width: 229px;
+      }
+
       &:first-child {
         padding-top: 0;
+
+        @include media(">desktop") {
+          padding-left: 0;
+        }
 
         &::after {
           display: none;
@@ -76,6 +117,13 @@
         background: rgba(0, 0, 0, 0.15);
         content: "";
         transform: translateX(-50%);
+
+        @include media(">desktop") {
+          left: 0;
+          width: 1px;
+          height: 63px;
+          transform: initial;
+        }
       }
 
       .title {
@@ -83,10 +131,19 @@
         font-size: 32px;
         line-height: 39px;
         margin-bottom: 9px;
+
+        @include media(">desktop") {
+          margin-bottom: 8px;
+        }
       }
 
       .description {
         line-height: 17px;
+
+        @include media(">desktop") {
+          font-size: 15px;
+          line-height: 18px;
+        }
       }
     }
   }
@@ -115,9 +172,19 @@
     text-align: left;
     padding: 40px 24px;
 
+    @include media(">desktop") {
+      padding: 48px;
+    }
+
     .title {
       font-size: 18px;
       line-height: 22px;
+
+      @include media(">desktop") {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 0;
+      }
     }
 
     .description {
@@ -125,6 +192,11 @@
       line-height: 24px;
       color: #7A7A7A;
       white-space: pre-line;
+
+      @include media(">desktop") {
+        font-size: 16px;
+        line-height: 30px;
+      }
     }
   }
 

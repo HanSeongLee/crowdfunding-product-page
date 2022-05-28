@@ -16,10 +16,19 @@ interface IProps {
 const ProjectView: React.FC<IProps> = ({ onBackProjectClick, onRewardSelect }) => {
     return (
         <section className={styles.projectView}>
-            <img className={styles.topBanner}
-                 src={'/img/image-hero-mobile.jpg'}
-                 alt={''}
-            />
+            <picture>
+                <source srcSet={'/img/image-hero-mobile.jpg'}
+                        media={'(max-width: 992px)'}
+                />
+                <source srcSet={'/img/image-hero-desktop.jpg'}
+                        media={'(min-width: 992px)'}
+                />
+
+                <img className={styles.topBanner}
+                     src={'/img/image-hero-desktop.jpg'}
+                     alt={''}
+                />
+            </picture>
             <Container className={styles.container}>
                 <div className={styles.box}>
                     <img className={styles.projectLogo}
@@ -37,7 +46,7 @@ const ProjectView: React.FC<IProps> = ({ onBackProjectClick, onRewardSelect }) =
                         <Button onClick={onBackProjectClick}>
                             Back this project
                         </Button>
-                        <BookmarkButton />
+                        <BookmarkButton/>
                     </div>
                 </div>
 
