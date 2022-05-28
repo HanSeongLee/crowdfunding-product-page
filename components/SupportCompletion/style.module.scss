@@ -1,3 +1,4 @@
+@import "styles/utils";
 
 .supportCompletion {
   display: flex;
@@ -10,8 +11,21 @@
   border-radius: 8px;
   padding: 32px 24px 40px;
 
+  @include media(">desktop") {
+    max-width: 540px;
+    grid-gap: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 48px 48px 48.5px;
+  }
+
   .icon {
     width: 64px;
+
+    @include media(">desktop") {
+      width: 90px;
+      margin-bottom: 47.5px;
+    }
   }
 
   .title {
@@ -19,13 +33,27 @@
     font-size: 18px;
     line-height: 22px;
     color: #000000;
+
+    @include media(">desktop") {
+      font-size: 24px;
+      line-height: 29px;
+      margin-bottom: 16px;
+    }
   }
 
   .description {
     line-height: 24px;
+
+    @include media(">desktop") {
+      line-height: 30px;
+    }
   }
 
   .button {
     margin-top: 7.5px;
+
+    @include media(">desktop") {
+      margin-top: 32px;
+    }
   }
 }
