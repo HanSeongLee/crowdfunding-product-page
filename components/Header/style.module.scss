@@ -8,6 +8,10 @@
   padding: 32px 0 76px;
   z-index: 2;
 
+  @include media(">desktop") {
+    padding: 32px 0 60px;
+  }
+
   &::before {
     position: absolute;
     top: 0;
