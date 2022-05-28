@@ -41,7 +41,7 @@ const ProjectView: React.FC<IProps> = ({ project, onBackProjectClick, onRewardSe
                 />
             </picture>
             <Container className={styles.container}>
-                <div className={styles.box}>
+                <div className={cn(styles.box, styles.intro)}>
                     <img className={styles.projectLogo}
                          src={logo}
                          alt={'logo'}
