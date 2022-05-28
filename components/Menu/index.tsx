@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './style.module.scss';
 import SitemapContainer from '../../containers/SitemapContainer';
+import cn from 'classnames';
 
 interface IProps {
     open: boolean;
@@ -19,11 +20,11 @@ const Menu: React.FC<IProps> = ({ open, toggleMenu }) => {
                 />
             </button>
 
-            {open && (
-                <div className={styles.menuContainerWrapper}>
-                    <SitemapContainer className={styles.menuContainer}/>
-                </div>
-            )}
+            <div className={cn(styles.menuContainerWrapper, {
+                [styles.open]: open,
+            })}>
+                <SitemapContainer className={styles.menuContainer}/>
+            </div>
         </nav>
     );
 };

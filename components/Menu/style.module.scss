@@ -1,3 +1,4 @@
+@import "styles/utils";
 
 .menuNav {
   .menuButton {
@@ -5,6 +6,10 @@
     border: none;
     cursor: pointer;
     outline: none;
+
+    @include media(">desktop") {
+      display: none;
+    }
   }
 
   .menuContainerWrapper {
@@ -12,6 +17,18 @@
     top: 88px;
     left: 0;
     width: 100%;
+    display: none;
+
+    &.open {
+      display: block;
+    }
+
+    @include media(">desktop") {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: block;
+    }
   }
 
   .menuContainer {
@@ -26,9 +43,24 @@
     margin: 0 24px;
     z-index: 1;
 
+    @include media(">desktop") {
+      display: flex;
+      grid-gap: 32px;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 16px;
+      color: #FFFFFF;
+      background: transparent;
+      border: none;
+    }
+
     li {
       display: flex;
       border-bottom: 1px solid rgba(47, 47, 47, 0.1);
+
+      @include media(">desktop") {
+        border-bottom: none;
+      }
 
       &:last-child {
         border-bottom: none;
@@ -37,6 +69,14 @@
       a {
         flex: 1;
         padding: 24px;
+
+        @include media(">desktop") {
+          padding: 0;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }
